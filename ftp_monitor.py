@@ -4,7 +4,7 @@ from watchdog.events import FileSystemEventHandler
 
 
 class Watcher:
-    DIRECTORY_TO_WATCH = "/path/to/my/directory"
+    DIRECTORY_TO_WATCH = "/home/arts/powershell_ftp"
 
     def __init__(self):
         self.observer = Observer()
@@ -32,11 +32,7 @@ class Handler(FileSystemEventHandler):
 
         elif event.event_type == 'created':
             # Take any action here when a file is first created.
-            print "Received created event - %s." % event.src_path
-
-        elif event.event_type == 'modified':
-            # Taken any action here when a file is modified.
-            print "Received modified event - %s." % event.src_path
+            print("Received FTP Import: - %s." % event.src_path)
 
 
 if __name__ == '__main__':
